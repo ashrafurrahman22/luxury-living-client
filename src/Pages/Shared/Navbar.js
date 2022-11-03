@@ -4,8 +4,8 @@ import logo from '../../assets/Group 33069.png'
 
 const Navbar = () => {
     return (
-        <div className='px-14'>
-            <div className="navbar bg-base-100 py-3">
+        <div className='px-14 bg-base-300'>
+            <div className="navbar bg-base-300 py-3">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -40,7 +40,7 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <Link to='/' className="btn bg-blue-900 w-32 border-none">Login</Link>
+    <Link to='/' className="btn bg-blue-900 w-32 border-none normal-case font-light">Login</Link>
   </div>
 </div>
         </div>
