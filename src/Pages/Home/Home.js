@@ -1,10 +1,12 @@
 import React from 'react';
 import Banner from './Banner';
+import ContactForm from './ContactForm';
 
 const Home = () => {
     return (
-        <div className='bg-base-300 px-14'>
+        <div>
             <Banner/>
+            <ContactForm/>
         </div>
     );
 };

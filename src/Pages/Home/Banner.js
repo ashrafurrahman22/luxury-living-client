@@ -2,7 +2,7 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <div className="flex justify-center pt-10 items-center flex-row-reverse gap-10">
+    <div className="bg-base-300 flex justify-center pt-10 items-center flex-row-reverse gap-10">
       <div>
         <img className="w-2/3 mx-auto mb-[-50px]"
           src="https://i.ibb.co/GRG5CJ0/pierre-chatel-innocenti-Al-Sl-E8-IAj-Zo-unsplash-1.png"
