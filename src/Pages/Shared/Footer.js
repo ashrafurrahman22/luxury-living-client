@@ -4,7 +4,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div style={{backgroundColor:"#242A56", fontFamily:"aleo"}}>
+        <div style={{backgroundColor:"#242A56", fontFamily:"poppins"}}>
 
 <footer  class="footer p-24 text-white ">
   <div className='flex'>
@@ -47,7 +47,7 @@ duis laoreet maecenas. Feugiat </p>
         
         <hr className='mb-5' />
     <div className='text-white max-w-7xl text-center pb-8'>
-    <p style={{letterSpacing:"1px"}} >Copyright © 2022 | Powered by Introit Industries Ltd</p>
+    <p style={{letterSpacing:"1px"}} >Copyright © 2022 | Powered by Luxury Living Industries Ltd</p>
      </div>
 
        </div>
