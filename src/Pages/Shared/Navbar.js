@@ -33,10 +33,10 @@ const Navbar = () => {
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
       <li><Link to='/'>Home</Link></li>
-      <li><Link to='/'>About Us</Link></li>
-      <li><Link to='/'>Projects</Link></li>
-      <li><Link to='/'>Contact</Link></li>
-      <li><Link to='/'>Admin</Link></li>
+      <li><Link to='/about'>About Us</Link></li>
+      <li><Link to='/'>Services</Link></li>
+      <li><Link to='/contact'>Contact</Link></li>
+      {/* <li><Link to='/'>Admin</Link></li> */}
     </ul>
   </div>
   <div className="navbar-end">

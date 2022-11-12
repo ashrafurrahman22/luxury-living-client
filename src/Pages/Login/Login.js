@@ -41,125 +41,34 @@ const Login = () => {
     }
 
     return (
-        <div className="min-h-screen">
-        <div className="flex justify-center items-center">
-          <div id='login-mainDiv'
-            
-            className="flex rounded-xl bg-base-200 flex-col justify-center items-center p-20"
-          >
-            <div id='secndDiv'
-              className="flex flex-col justify-center items-center"
-            >
-              <h2
-                style={{
-                  fontFamily: "Montserrat",
-                  fontSize: "24px",
-                  letterSpacing: "1px",
-                }}
-                className="text-center font-semibold pb-4"
-              >
-                Login
-              </h2>
+      <div style={{
+        fontFamily:"Montserrat"
+    }} className='flex justify-center items-center py-14'>
+        <div>
+        <div className="card card-body text-black border border-black rounded shadow-sm w-96">
+            <h1 className='font-semibold text-lg'>Login</h1>
+        <form className='flex flex-col gap-4' onSubmit={handleSubmit(onSubmit)}>
+  <input className='border-b p-2 border-gray-400' placeholder='Email' type="email" {...register("email")} />
+  <input className='border-b p-2 border-gray-400' placeholder='Password' type='password' {...register("password")} />
   
+  {errors.password && <span>This field is required</span>}
   
-              {/* form div */}
-              <div>
-                <form onSubmit={handleSubmit(onSubmit)}>
-  
-                  <div  className="form-control w-96 max-w-xs">
-                    
-                    <input  
-                      type="email"
-                      placeholder="Your Email"
-                      className="input input-bordered rounded-full w-full max-w-xs"
-                      {...register("email", {
-                        required: {
-                          value: true,
-                          message: "Email is Required",
-                        },
-                        pattern: {
-                          value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                          message: "Provide a valid Email",
-                        },
-                      })}
-                    />
-                    <label className="label">
-                      {errors.email?.type === "required" && (
-                        <span className="label-text-alt text-red-500">
-                          {errors.email.message}
-                        </span>
-                      )}
-                      {errors.email?.type === "pattern" && (
-                        <span className="label-text-alt text-red-500">
-                          {errors.email.message}
-                        </span>
-                      )}
-                    </label>
-                  </div>
-                  <div className="form-control w-full max-w-xs">
-                   
-                    <input
-                      type="password"
-                      placeholder="Password"
-                      className="input input-bordered rounded-full w-full max-w-xs"
-                      {...register("password", {
-                        required: {
-                          value: true,
-                          message: "Password is Required",
-                        },
-                        minLength: {
-                          value: 6,
-                          message: "Must be 6 characters or longer",
-                        },
-                      })}
-                    />
-                    <label className="label">
-                      {errors.password?.type === "required" && (
-                        <span className="label-text-alt text-red-500">
-                          {errors.password.message}
-                        </span>
-                      )}
-                      {errors.password?.type === "minLength" && (
-                        <span className="label-text-alt text-red-500">
-                          {errors.password.message}
-                        </span>
-                      )}
-                    </label>
-                  </div>
-  
-                  {signInError}
-                  <input
-                    className="btn lg:w-full w-56 rounded-full lg:max-w-xs text-white"
-                    type="submit"
-                    value="Login"
-                  />
-                </form>
-              </div>
-  
-              <div className="divider">OR</div>
-              {/* google div */}
-              <div>
-                <button id='googleBtn'
-                  
-                  onClick={() => signInWithGoogle()}
-                  className="btn rounded-full  btn-outline"
-                >
-                  <img className="w-6 mr-3" src="https://assets.stickpng.com/thumbs/5847f9cbcef1014c0b5e48c8.png" alt="" />
-                  Continue with Google
-                </button>
-                <p className="text-center py-2">
-                  <small>
-                  Don't have an account ? {" "}
-                    <Link className="text-primary" to="/signup">
-                      SignUp
-                    </Link>
-                  </small>
-                </p>
-              </div>
-            </div>
-          </div>
+  <input className='btn bg-blue-900 w-full mx-auto border-none normal-case font-light' type="submit" value="Login" />
+</form>
+        <h2 className='text-xs text-center pt-2'>Don't have an account? <Link className='text-blue-700' to='/signup'>Signup</Link> </h2>
         </div>
-      </div>
+        <div className="divider">or</div>
+
+        <div className='border border-gray-400 rounded-full flex px-10 justify-center items-center'>
+            <img className='w-12 p-2' src="https://www.freeiconspng.com/uploads/facebook-png-icon-follow-us-facebook-1.png" alt="" />
+            <p className='text-center'>Continue with Facebook</p>
+        </div>
+        <div className='border border-gray-400 rounded-full mt-3 flex justify-center px-10 items-center'>
+            <img className='w-12 p-2' src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="" />
+            <p>Continue with Google</p>
+        </div>
+        </div>
+    </div>
     );
 };
 
