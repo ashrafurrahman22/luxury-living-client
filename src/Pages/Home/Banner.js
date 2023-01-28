@@ -15,8 +15,8 @@ const Banner = () => {
             letterSpacing:"2px"
         }} className="text-5xl font-extrabold">We Build <br /> Your Dream</h1>
         <p className="text-sm text-justify">
-          Online Easte Agency, the mordern way to sell your own home, <br /> You can
-          use Griffin Residential to market your property
+          Online Easte Agency, the mordern way to sell your <br /> own home, You can
+          use Griffin Residential to <br /> market your property
         </p>
         <button className="btn bg-blue-900 w-32 border-none normal-case font-light">
         Booking

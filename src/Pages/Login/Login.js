@@ -1,13 +1,24 @@
+import { async } from '@firebase/util';
 import React from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useForm } from 'react-hook-form';
+import { useState } from 'react';
+import { useSignInWithEmailAndPassword, useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { set, useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 
 const Login = () => {
 
-    const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
+    const [clicked, setClicked] = useState(false)
+
+    const handleClick = () => {
+        setClicked(true)
+    }
+
+    const [signInWithGoogle, user2, loading2, error2] = useSignInWithGoogle(auth);
+
+    const [signInWithFacebook, user3, loading3, error3] = useSignInWithFacebook(auth);
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
@@ -23,21 +34,22 @@ const Login = () => {
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
-    if(user || user1){
+    if(user || user2 ||user3 ){
         navigate(from, { replace: true });
         console.log(user);
       }
 
-    if (loading || loading1 ) {
+    if (loading || loading2 || loading3 ) {
         return <Loading></Loading>
     }
 
-    if(error || error1){
-        signInError= <p className='text-red-500'><small>{error?.message || error1?.message }</small></p>
+    if(error || error2 || error3 ){
+        signInError= <p className='text-red-500'><small>{error?.message || error2?.message || error3.message }</small></p>
     }
 
-    const onSubmit = data => {
-        signInWithEmailAndPassword(data.email, data.password);
+    const onSubmit = async (data) => {
+        console.log(data)
+        await signInWithEmailAndPassword(data.email, data.password)
     }
 
     return (
@@ -52,21 +64,22 @@ const Login = () => {
   <input className='border-b p-2 border-gray-400' placeholder='Password' type='password' {...register("password")} />
   
   {errors.password && <span>This field is required</span>}
-  
+  {signInError}
   <input className='btn bg-blue-900 w-full mx-auto border-none normal-case font-light' type="submit" value="Login" />
 </form>
-        <h2 className='text-xs text-center pt-2'>Don't have an account? <Link className='text-blue-700' to='/signup'>Signup</Link> </h2>
+        <h2 className='text-xs font-semibold text-center pt-2'>Don't have an account? <Link className='text-blue-700' to='/signup'>Signup</Link> </h2>
         </div>
         <div className="divider">or</div>
 
-        <div className='border border-gray-400 rounded-full flex px-10 justify-center items-center'>
-            <img className='w-12 p-2' src="https://www.freeiconspng.com/uploads/facebook-png-icon-follow-us-facebook-1.png" alt="" />
-            <p className='text-center'>Continue with Facebook</p>
-        </div>
-        <div className='border border-gray-400 rounded-full mt-3 flex justify-center px-10 items-center'>
-            <img className='w-12 p-2' src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="" />
-            <p>Continue with Google</p>
-        </div>
+        <button onClick={()=> signInWithFacebook() } className='border border-gray-400 rounded-full flex w-full justify-center items-center'>
+                <img className='w-12 p-2' src="https://www.freeiconspng.com/uploads/facebook-png-icon-follow-us-facebook-1.png" alt="" />
+                <p className='text-center'>Continue with Facebook</p>
+            </button>
+
+            <button onClick={() => signInWithGoogle()} className='border border-gray-400 rounded-full mt-3 flex justify-center w-full items-center'>
+                <img className='w-12 p-2' src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="" />
+                <p>Continue with Google</p>
+            </button>
         </div>
     </div>
     );

@@ -3,6 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
 const Footer = () => {
+
+    const date = new Date();
+    const year = date.getFullYear();
+
     return (
         <div style={{backgroundColor:"#242A56", fontFamily:"poppins"}}>
 
@@ -47,7 +51,7 @@ duis laoreet maecenas. Feugiat </p>
         
         <hr className='mb-5' />
     <div className='text-white max-w-7xl text-center pb-8'>
-    <p style={{letterSpacing:"1px"}} >Copyright © 2022 | Powered by Luxury Living Industries Ltd</p>
+    <p style={{letterSpacing:"1px"}} >Copyright © {year} | Powered by Luxury Living Industries Ltd</p>
      </div>
 
        </div>

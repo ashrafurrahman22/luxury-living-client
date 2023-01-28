@@ -7,7 +7,7 @@ const SingleTesti = ({testi}) => {
     const {img, name, title, description}=testi;
 
     return (
-        <div className="card w-80 rounded card-body bg-base-100 shadow-lg">
+        <div className="card rounded card-body bg-base-100 shadow-lg">
       <div className="flex justify-start items-center gap-4">
       <figure><img className='w-14' src={img} alt="Shoes" /></figure>
       <div className="">

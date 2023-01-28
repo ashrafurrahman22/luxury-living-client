@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBcCPSyxF12kOw1blTf4-6GVGFRoRKc3Tk",
-  authDomain: "luxury-living22.firebaseapp.com",
-  projectId: "luxury-living22",
-  storageBucket: "luxury-living22.appspot.com",
-  messagingSenderId: "842414811707",
-  appId: "1:842414811707:web:6bceb430dd14d09ab38a1e"
+  apiKey: "AIzaSyC-A5Mev7uCVP3-D58WvWst6EhJefBdF88",
+  authDomain: "luxury-living-c681b.firebaseapp.com",
+  projectId: "luxury-living-c681b",
+  storageBucket: "luxury-living-c681b.appspot.com",
+  messagingSenderId: "590789751636",
+  appId: "1:590789751636:web:d7eba8119bcdb635c48ec1"
 };
 
 // Initialize Firebase
