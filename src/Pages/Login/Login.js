@@ -7,6 +7,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
+import {FaFacebook} from 'react-icons/fa';
+import {FcGoogle} from 'react-icons/fc';
 
 const Login = () => {
 
@@ -71,15 +73,21 @@ const Login = () => {
         </div>
         <div className="divider">or</div>
 
-        <button onClick={()=> signInWithFacebook() } className='border border-gray-400 rounded-full flex w-full justify-center items-center'>
-                <img className='w-12 p-2' src="https://www.freeiconspng.com/uploads/facebook-png-icon-follow-us-facebook-1.png" alt="" />
-                <p className='text-center'>Continue with Facebook</p>
+            <div>
+
+            <button onClick={() => signInWithGoogle()} className='border border-gray-400 rounded-full flex justify-center w-full items-center py-2'>
+                <FcGoogle className='text-3xl'/>
+                <p className='px-2'>Continue with Google</p>
             </button>
 
-            <button onClick={() => signInWithGoogle()} className='border border-gray-400 rounded-full mt-3 flex justify-center w-full items-center'>
-                <img className='w-12 p-2' src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="" />
-                <p>Continue with Google</p>
+        <button onClick={()=> signInWithFacebook() } className='border border-gray-400 rounded-full flex    w-full justify-center items-center py-2 mt-3'>
+                <FaFacebook className='text-3xl' />
+                <p className='text-center px-2'>Continue with Facebook</p>
             </button>
+
+            </div>
+
+           
         </div>
     </div>
     );
